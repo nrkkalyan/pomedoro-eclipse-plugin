@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rabbit Data XML Storage
+Bundle-SymbolicName: rabbit.data.xml;singleton:=true
+Bundle-Version: 1.2.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui;resolution:=optional,
+ org.eclipse.debug.core;resolution:=optional,
+ org.eclipse.mylyn.tasks.core;resolution:=optional,
+ rabbit.data;bundle-version="1.1.0",
+ rabbit.common;bundle-version="1.1.0",
+ org.eclipse.jdt.core;resolution:=optional
+Export-Package: rabbit.data.internal.xml;x-friends:="rabbit.data.xml.ui",
+ rabbit.data.internal.xml.access;x-internal:=true,
+ rabbit.data.internal.xml.convert;x-internal:=true,
+ rabbit.data.internal.xml.merge;x-internal:=true,
+ rabbit.data.internal.xml.schema.events;x-internal:=true,
+ rabbit.data.internal.xml.store;x-internal:=true,
+ rabbit.data.xml
+Bundle-Activator: rabbit.data.internal.xml.XmlPlugin
+Bundle-ActivationPolicy: lazy

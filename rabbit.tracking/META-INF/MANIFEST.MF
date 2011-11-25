@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rabbit Tracking
+Bundle-SymbolicName: rabbit.tracking;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-Activator: rabbit.tracking.internal.TrackingPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.core,
+ rabbit.data.handler;bundle-version="1.0.0",
+ org.eclipse.ui.ide,
+ rabbit.data;bundle-version="1.1.0",
+ rabbit.common;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: rabbit.tracking,
+ rabbit.tracking.internal;x-friends:="rabbit.ui,rabbit.tracking.java,rabbit.tracking.mylyn",
+ rabbit.tracking.internal.startup;x-internal:=true,
+ rabbit.tracking.internal.trackers;x-friends:="rabbit.tracking.mylyn,rabbit.tracking.java",
+ rabbit.tracking.internal.util
+Eclipse-ExtensibleAPI: true

@@ -1,0 +1,18 @@
+#Organize Import Order
+#Fri Apr 02 13:48:49 NZDT 2010
+9=org
+8=\#org
+7=net
+15=
+6=\#net
+14=\#
+5=junit
+13=javax
+4=\#junit
+12=\#javax
+3=com
+11=java
+2=\#com
+10=\#java
+1=rabbit
+0=\#rabbit

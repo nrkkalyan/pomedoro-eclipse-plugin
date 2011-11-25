@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rabbit Java Tracking
+Bundle-SymbolicName: rabbit.tracking.java;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.jdt.core,
+ rabbit.common;bundle-version="1.0.0",
+ rabbit.data;bundle-version="1.1.0",
+ rabbit.data.handler;bundle-version="1.0.0",
+ rabbit.tracking;bundle-version="1.1.0",
+ org.eclipse.jdt.ui,
+ org.eclipse.ui.editors,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: rabbit.tracking.internal.trackers;x-internal:=true

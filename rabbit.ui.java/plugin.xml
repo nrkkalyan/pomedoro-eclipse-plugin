@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="rabbit.ui.pages">
+      <page
+            class="rabbit.ui.internal.pages.java.JavaPage"
+            description="Time spent on Java resources"
+            icon="icons/full/obj16/java_resource.gif"
+            id="rabbit.ui.pages.java"
+            name="Java Elements"
+            parent="rabbit.ui.pages.javaCategory">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.java.JavaCategoryPage"
+            description="Contains pages that display specific information about Java related activities"
+            icon="icons/full/obj16/java.gif"
+            id="rabbit.ui.pages.javaCategory"
+            name="Java Specifics">
+      </page>
+   </extension>
+
+</plugin>

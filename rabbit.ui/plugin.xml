@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="rabbit.ui.pages" name="rabbit.ui.pages" schema="schema/rabbit.ui.pages.exsd"/>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="rabbit.ui.view"
+            class="rabbit.ui.internal.RabbitView"
+            icon="icons/full/eview16/rabbitview.png"
+            id="rabbit.ui.view.rabbitview"
+            name="Rabbit"
+            restorable="true">
+      </view>
+      <category
+            id="rabbit.ui.view"
+            name="Rabbit">
+      </category>
+   </extension>
+   <extension
+         point="rabbit.ui.pages">
+      <page
+            class="rabbit.ui.internal.pages.EclipseUsageCategory"
+            description="Contains pages that display Eclipse usage information"
+            icon="icons/full/obj16/eclipse.gif"
+            id="rabbit.ui.pages.eclipseUsage"
+            name="Eclipse Usage">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.ProjectCategory"
+            description="Contains pages that display information relating to projects"
+            icon="icons/full/obj16/projectclosed.gif"
+            id="rabbit.ui.pages.projectRelated"
+            name="Project Related">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.CommandPage"
+            description="Command execution counts"
+            icon="icons/full/obj16/cut.gif"
+            id="rabbit.ui.pages.command"
+            name="Commands"
+            parent="rabbit.ui.pages.eclipseUsage">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.PartPage"
+            description="Time spent using different views and editors"
+            icon="icons/full/obj16/defaultview.gif"
+            id="rabbit.ui.pages.workbenchPart"
+            name="Editors and Views"
+            parent="rabbit.ui.pages.eclipseUsage">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.SessionPage"
+            description="Time spent within Eclipse"
+            icon="icons/full/obj16/home.gif"
+            id="rabbit.ui.pages.session"
+            name="Sessions"
+            parent="rabbit.ui.pages.eclipseUsage">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.PerspectivePage"
+            description="Time spent using different perspectives"
+            icon="icons/full/obj16/defaultpersp.gif"
+            id="rabbit.ui.pages.perspective"
+            name="Perspectives"
+            parent="rabbit.ui.pages.eclipseUsage">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.ResourcePage"
+            description="Time spent working on different resources"
+            icon="icons/full/obj16/res.gif"
+            id="rabbit.ui.pages.resource"
+            name="Resources"
+            parent="rabbit.ui.pages.projectRelated">
+      </page>
+      <page
+            class="rabbit.ui.internal.pages.LaunchPage"
+            description="Displays information about launch events and resources involved when debugging"
+            icon="icons/full/obj16/launch.gif"
+            id="rabbit.ui.pages.launch"
+            name="Launches"
+            parent="rabbit.ui.pages.projectRelated">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="rabbit.ui.internal.pref.RabbitPreferencePage"
+            id="rabbit.ui.mainPref"
+            name="Rabbit">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="false"
+            class="rabbit.ui.internal.decorators.RabbitDecorator"
+            id="rabbit.ui.decorators.RabbitDecorator"
+            label="Rabbit Decorator"
+            lightweight="true"
+            state="true">
+         <enablement>
+            <or>
+               <objectClass
+                     name="org.joda.time.LocalDate">
+               </objectClass>
+               <objectClass
+                     name="rabbit.data.access.model.WorkspaceStorage">
+               </objectClass>
+            </or>
+         </enablement>
+         <description>
+            Rabbit&apos;s decorator for decorating elements in the Rabbit View, to provide more useful information.
+         </description>
+      </decorator>
+   </extension>
+
+</plugin>

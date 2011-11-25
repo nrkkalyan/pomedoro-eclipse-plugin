@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: rabbit.ui.java.test
+Bundle-SymbolicName: rabbit.ui.java.test
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.junit4,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt.core,
+ org.eclipse.core.resources,
+ rabbit.common,
+ rabbit.data,
+ rabbit.common.testing
+Fragment-Host: rabbit.ui.java
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

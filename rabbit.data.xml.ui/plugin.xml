@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="rabbit.ui.mainPref"
+            class="rabbit.data.internal.xml.ui.pref.StoragePathPreferencePage"
+            id="rabbit.data.xml.ui.preferencePages.storage"
+            name="Storage Location">
+      </page>
+   </extension>
+
+</plugin>

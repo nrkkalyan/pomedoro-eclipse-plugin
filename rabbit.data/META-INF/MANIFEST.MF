@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rabbit Data
+Bundle-SymbolicName: rabbit.data;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: rabbit.common;bundle-version="1.0.0",
+ org.eclipse.debug.core;resolution:=optional,
+ org.eclipse.mylyn.tasks.core;resolution:=optional,
+ org.eclipse.ui;resolution:=optional,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core;resolution:=optional,
+ org.eclipse.mylyn.tasks.ui;resolution:=optional
+Export-Package: rabbit.data,
+ rabbit.data.access,
+ rabbit.data.access.model,
+ rabbit.data.common,
+ rabbit.data.internal.access.model;x-friends:="rabbit.data.xml",
+ rabbit.data.store,
+ rabbit.data.store.model
+Bundle-ClassPath: .

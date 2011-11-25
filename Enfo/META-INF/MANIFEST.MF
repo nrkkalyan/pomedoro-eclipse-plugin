@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Enfo
+Bundle-SymbolicName: Enfo;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: enfo.EnfoPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.jdt.internal.ui.text.java.hover

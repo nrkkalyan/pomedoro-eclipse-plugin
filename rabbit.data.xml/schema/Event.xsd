@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:verson="2.0">
+
+  <!--
+    This is the schema for the XML files containing event data. It will be used 
+    with JAXB to generate Java classes.
+  -->
+  <xs:element name="events" type="eventListType" />
+
+  <xs:complexType name="eventListType">
+    <xs:sequence>
+      <xs:element name="commandEvents" type="commandEventListType" maxOccurs="unbounded" />
+      <xs:element name="partEvents" type="partEventListType" maxOccurs="unbounded" />
+      <xs:element name="fileEvents" type="fileEventListType" maxOccurs="unbounded" />
+      <xs:element name="perspectiveEvents" type="perspectiveEventListType" maxOccurs="unbounded" />
+      <xs:element name="taskFileEvents" type="taskFileEventListType" maxOccurs="unbounded" />
+      <xs:element name="launchEvents" type="launchEventListType" maxOccurs="unbounded" />
+      <xs:element name="sessionEvents" type="sessionEventListType" maxOccurs="unbounded" />
+      <xs:element name="javaEvents" type="javaEventListType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Command Events: -->
+  <xs:complexType name="commandEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="commandEvent" type="commandEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="commandEventType">
+    <xs:complexContent>
+      <xs:extension base="countEventType">
+        <xs:attribute name="commandId" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- WorkbenchPart Events: -->
+  <xs:complexType name="partEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="partEvent" type="partEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="partEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType">
+        <xs:attribute name="partId" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Perspective Events: -->
+  <xs:complexType name="perspectiveEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="perspectiveEvent" type="perspectiveEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="perspectiveEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType">
+        <xs:attribute name="perspectiveId" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- File Events: -->
+  <xs:complexType name="fileEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="fileEvent" type="fileEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="fileEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType">
+        <xs:attribute name="filePath" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Task File Events: -->
+  <xs:complexType name="taskFileEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="taskFileEvent" type="taskFileEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="taskFileEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType">
+        <xs:sequence>
+          <xs:element name="taskId" type="taskIdType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="filePath" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="taskIdType">
+    <xs:attribute name="handleId" type="xs:string" use="required" />
+    <xs:attribute name="creationDate" type="xs:dateTime" use="required" />
+  </xs:complexType>
+
+  <!-- Launch Events: -->
+  <xs:complexType name="launchEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="launchEvent" type="launchEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="launchEventType">
+    <xs:complexContent>
+      <xs:extension base="countEventType">
+        <xs:sequence>
+          <!-- 
+            filePath represents the files involved in a debug session, can be 
+            empty:
+           -->
+          <xs:element name="filePath" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="launchModeId" type="xs:string" use="required" />
+        <xs:attribute name="launchTypeId" type="xs:string" use="required" />
+        <xs:attribute name="totalDuration" type="durationType" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Session Events: -->
+  <xs:complexType name="sessionEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="sessionEvent" type="sessionEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="sessionEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType" />
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!-- Java Events: -->
+  <xs:complexType name="javaEventListType">
+    <xs:complexContent>
+      <xs:extension base="eventGroupType">
+        <xs:sequence>
+          <xs:element name="javaEvent" type="javaEventType" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="javaEventType">
+    <xs:complexContent>
+      <xs:extension base="durationEventType">
+        <xs:attribute name="handleIdentifier" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <!--
+    Base for event groups, a group contains a date attribute and events happened
+    that date:
+  -->
+  <xs:complexType name="eventGroupType">
+    <xs:attribute name="date" type="xs:date" use="required" />
+  </xs:complexType>
+
+  <!-- Base for event types that have durations: -->
+  <xs:complexType name="durationEventType">
+    <xs:attribute name="duration" type="durationType" use="required" />
+  </xs:complexType>
+
+  <!-- Base for event types that have counts: -->
+  <xs:complexType name="countEventType">
+    <xs:attribute name="count" type="countType" use="required" />
+  </xs:complexType>
+
+ <!-- Represents a non-negative integer type: -->
+  <xs:simpleType name="countType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Represents a non-negative duration in milliseconds: -->
+  <xs:simpleType name="durationType">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

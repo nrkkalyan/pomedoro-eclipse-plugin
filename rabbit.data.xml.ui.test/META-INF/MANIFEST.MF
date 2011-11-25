@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: rabbit.data.xml.ui.test
+Bundle-SymbolicName: rabbit.data.xml.ui.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: rabbit.data.xml
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.swtbot.eclipse.finder,
+ org.eclipse.swtbot.junit4_x,
+ org.eclipse.core.runtime,
+ org.junit4,
+ org.eclipse.ui
+Export-Package: rabbit.data.internal.xml.ui

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: rabbit.data.handler.test
+Bundle-SymbolicName: rabbit.data.handler.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: rabbit.data.handler
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit4,
+ rabbit.data
+Export-Package: rabbit.data.handler
